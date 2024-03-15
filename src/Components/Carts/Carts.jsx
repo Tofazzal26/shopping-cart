@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Cart from "../Cart/Cart";
 
-const Carts = () => {
+const Carts = ({ handleCartAdd }) => {
   const [carts, setCarts] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Carts = () => {
     <div className="flex-1">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {carts.map((cart) => (
-          <Cart cart={cart} key={cart.id} />
+          <Cart cart={cart} key={cart.id} handleCartAdd={handleCartAdd} />
         ))}
       </div>
     </div>

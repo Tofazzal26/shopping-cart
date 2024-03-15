@@ -1,4 +1,4 @@
-const Cart = ({ cart }) => {
+const Cart = ({ cart, handleCartAdd }) => {
   const { category, description, image, price, title } = cart;
   return (
     <div>
@@ -12,7 +12,10 @@ const Cart = ({ cart }) => {
           <p className="text-xl font-semibold">{price} $</p>
           <p className="text-lg">{category}</p>
           <div className="card-actions justify-center">
-            <button className="btn w-full btn-primary bg-[#1868d5] border-none">
+            <button
+              onClick={() => handleCartAdd(cart)}
+              className="btn w-full btn-primary bg-[#1868d5] border-none"
+            >
               Buy Now
             </button>
           </div>
