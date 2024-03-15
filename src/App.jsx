@@ -8,12 +8,16 @@ function App() {
   const [selectCart, setSelectCart] = useState([]);
 
   const handleCartAdd = (cart) => {
-    const isExisted = selectCart.find((idx) => idx.id == cart.id);
+    const isExisted = selectCart.find((idx) => idx.id.id == cart.id);
     const newCart = [...selectCart, cart];
     if (!isExisted) {
       setSelectCart(newCart);
-      console.log(isExisted);
     }
+  };
+
+  const handleRemove = (id) => {
+    const newCart = selectCart.filter((del) => del.id != id);
+    setSelectCart(newCart);
   };
 
   return (
@@ -22,7 +26,7 @@ function App() {
         <Header />
         <div className="flex mt-6 gap-4 container mx-auto">
           <Carts handleCartAdd={handleCartAdd} />
-          <SelectCart selectCart={selectCart} />
+          <SelectCart handleRemove={handleRemove} selectCart={selectCart} />
         </div>
       </div>
     </>
