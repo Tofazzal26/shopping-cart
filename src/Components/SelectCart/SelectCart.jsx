@@ -9,10 +9,10 @@ const SelectCart = ({ selectCart, handleRemove }) => {
       {/* <h2 className="text-center text-sm font-semibold">{title}</h2>
       <h2 className="text-center text-sm font-semibold">{price}</h2> */}
       <div className="">
-        {selectCart.map((cart) => (
+        {selectCart.map((cart, index) => (
           <div className="flex justify-around items-center mt-6" key={cart.id}>
             <h2 className="text-center text-sm font-semibold">
-              {cart.title.slice(0, 10)}
+              {index + 1} {cart.title.slice(0, 10)}
             </h2>
             <h2 className="text-center text-sm font-semibold">{cart.price}</h2>
             <button
